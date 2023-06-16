@@ -1,0 +1,453 @@
+/* Import font from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;400;700&display=swap');
+
+/* Define global variables */
+:root {
+    --light-grey: #3c3c44;
+    --transprent-light: rgba(24 , 24, 27, 0.8);
+    --transprent:  rgba(42, 43, 42, 0.418);
+    --white: #ffff;
+    --grey: #757575;
+    --red-transprent: rgba(255, 0, 0, 0.6);
+}
+
+/* Reset all margins and paddings */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Set the background and font styles for the document body */
+body {
+    background-image: url("img/blur_bg.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    font-family: 'Poppins', sans-serif;
+    color: var(--white);
+    min-height: 100vh;
+}
+
+/* Set styles for heading elements */
+h1{
+    width: 100%;
+    font-size: 1.5rem;
+    text-align: center;
+    font-weight: 400;
+    text-transform: capitalize;
+    letter-spacing: .2rem;
+}
+
+/* Set styles for the container element */
+.container {
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+}
+
+/* Set styles for the search bar element */
+.container .search {
+    display: flex;
+    flex-direction: column;
+    margin-top: 50%;
+    padding: 15px 15px;
+}
+
+/* Set styles for the search bar element when it is active */
+.container.active .search{
+    display: none;
+}
+
+/* Set styles for the search bar input container */
+.search .input-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+    width: 100%;
+}
+
+/* Set styles for the search bar input */
+.search .input-container input {
+    background: var(--transprent-light);
+    color: var(--white);
+    padding: 10px 15px;
+    width: 100%;
+    border: none;
+    font-size: 1rem;
+}
+
+/* Set styles for the search bar input when it is in focus */
+.search .input-container input:focus {
+    border: none;
+    outline: none;
+}
+
+/* Set styles for the search bar submit button */
+.search .input-container .btn {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+/* Set styles for the search bar submit button icon */
+.search .input-container .btn i {
+    font-size: 2rem;
+    margin: 10px;
+    color: var(--white);
+}
+
+/* Set styles for error messages in the search bar */
+.search .error-container .error-text {
+    font-size: .8rem;
+    font-weight: 400;
+    letter-spacing: .2rem;
+    text-transform: capitalize;
+}
+
+/* Set styles for error messages in the search bar when an error occurs */
+.error-text.error {
+    color: var(--white);
+    background: var(--red-transprent);
+    padding: 10px 25px;
+    border-radius: 8px;
+}
+
+/* Set styles for error messages in the search bar when waiting for response */
+/* Styles for displaying error text with white color and transparent background*/
+.error-text.wait {
+    color: var(--white);
+    padding: 10px 25px;
+    background: var(--transprent);
+    border-radius: 8px;
+}
+
+/* Styles for current weather container in a flexbox with space-between alignment*/
+.container .current  {
+    justify-content: space-between;
+}
+
+/* Styles for time container displaying font size of 5rem with font weight of 100 */
+.date-container .time {
+    font-size: 5rem;
+    font-weight: 100;
+}
+
+/* // Styles for time period (am/pm) within the time container */
+.date-container .time  #am-pm {
+    font-size: 2.5rem;
+    text-transform: uppercase;
+}
+
+/* // Styles for date display with font size of 1.7rem*/
+.date-container .date {
+    font-size: 1.7rem;
+}
+
+/* // Styles for weather place container with text-align center and hidden display */
+.place {
+    text-align: center;
+    display: none;
+    flex-direction: column;
+}
+
+/* // Styles for displaying weather place container when the parent container is active */
+.container.active .place {
+    display: flex;
+}
+
+/* // Styles for time zone display with font size of 2rem and font weight of 100 */
+.place .time-zone {
+    font-size: 2rem;
+    font-weight: 100;
+}
+
+/* // Styles for country display with font size of 1rem and font weight of 700 */
+.place .country {
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+/* // Styles for hiding the current weather container */
+.current {
+    display: none;
+}
+
+/* // Styles for displaying current weather container when the parent container is active */
+.container.active .current{
+    display: flex;
+}
+
+/* // Styles for other details container with font size of 1rem, font weight of 200, and capitalized text */
+.current .others  {
+    display: flex;
+    flex-direction: column;
+    font-size: 1rem;
+    font-weight: 200;
+    text-transform: capitalize;
+    background-color: var(--transprent);
+    padding: 20px;
+    border-radius: 10px;
+    margin: 10px 0;
+}
+
+/* // Styles for weather condition container with center alignment and font size of 1.5rem */
+.current .others .weather-condition-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    font-size: 1.5rem;
+    margin: 15px;
+}
+
+/* // Styles for other details container with column flexbox direction and padding of 20px */
+.current .others .other-details {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+/* // Styles for left and right grid containers within the other details container */
+.others .other-details .grid-left, .grid-right {
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+}
+
+/* // Styles for spaced content within the left grid container */
+.others .other-details .grid-left .spaced-content {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* // Styles for spaced content within the right grid container */
+.others .other-details .grid-right .spaced-content {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* // Styles for divs within the left grid container spaced content */
+.other-details .grid-left .spaced-content div {
+    font-size: 1rem;
+}
+
+/* // Styles for divs within the right grid container spaced content */
+.other-details .grid-right .spaced-content div {
+    font-size: 1
+}
+
+@media only screen and (min-width: 769px){
+    /* Changes the font size of h1 */
+    h1 {
+        font-size: 3rem;
+    }    
+    /* Styles for the search bar container */
+    .container .search {
+        margin-top: 15%;
+        padding: 15px 15px;
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+    }
+    /* Styles for the search input container */
+    .search .input-container {
+        font-size: 1.2rem;
+        padding: 20px ;
+    }
+    /* Styles for the search input field */
+    .search .input-container input { 
+        width: 70%;
+        padding: 20px 15px;
+    }
+    /* Styles for the error text displayed on the search bar */
+    .search .error-container .error-text {
+        font-size: .9rem;
+    }
+    /* Styles for the search button */
+    .search .input-container .btn i {
+        font-size: 2.5rem;
+    }
+    /* Hides the place section on larger screens */
+    .place {
+        display: none;
+    }
+    /* Hides the current section on larger screens */
+    .current {
+        display: none;
+    }
+    /* Displays the current section on larger screens when the container is active */
+    .container.active .current{
+        display: flex;
+    }
+    /* Styles for the weather condition and temperature container */
+    .current .others  {
+        display: flex;
+        flex-direction: row;
+    }
+    /* Styles for the weather condition container */
+    .current .others .weather-condition-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 30px;
+        font-size: 2rem;
+        margin: 15px;
+    }
+    /* Styles for the other weather details container */
+    .current .others .other-details {
+        display: flex;
+        flex-direction: row;
+        padding: 20px;
+        margin-left: 40px;
+    }
+    /* Styles for the left and right grid containers in the other details section */
+    .others .other-details .grid-left, .grid-right {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;    
+        margin: 10px;
+        padding: 0 50px;
+    }
+    /* Styles for the spaced content in the left grid container */
+    .others .other-details .grid-left .spaced-content {
+        display: flex;
+        justify-content: space-between;
+    }
+    /* Styles for the spaced content in the right grid container */
+    .others .other-details .grid-right .spaced-content {
+        display: flex;
+        justify-content: space-between;
+    }
+    /* Styles for the divs in the spaced content of the left grid container */
+    .other-details .grid-left .spaced-content div {
+        margin: 0 50px;
+        font-size: 1.2rem;
+    }
+    /* Styles for the divs in the spaced content of the right grid container */
+    .other-details .grid-right .spaced-content div {
+        margin: 0 50px;
+        font-size: 1.2rem;
+    }
+    /* Styles for the info button */
+    .content .info-btn {
+        color: #fff;
+        background: var(--primary-color);
+        text-decoration: none;
+        text-transform: uppercase;
+        font-weight: 200;
+        letter-spacing: 2px;
+        padding: 5px 10px;
+        /* border-radius:0px; */
+    }
+}
+/* Date picker styles */
+.date-container {
+    margin-top: 15px;
+}
+.date-container label {
+    font-size: 1rem;
+    font-weight: 400;
+    letter-spacing: .2rem;
+    text-transform: capitalize;
+}
+.date-container input[type="date"] {
+    background: var(--transprent-light);
+    color: var(--white);
+    padding: 10px 15px;
+    width: 100%;
+    border: none;
+    font-size: 1rem;
+}
+.date-container input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+}
+
+  /* Styles for submit button */
+input[type="submit"] {
+    background-color: #010101; /* set the background color */
+    border: none; /* remove the border */
+    color: #fff; /* set the text color */
+    padding: 10px 20px; /* add some padding */
+    border-radius: 20px; /* add some roundness */
+    cursor: pointer; /* change the cursor on hover */
+    transition: background-color 0.3s ease-in-out; /* add a transition effect */
+}
+
+input[type="submit"]:hover {
+    background-color: #405677; /* change the background color on hover */
+}
+
+  /* Styles for info button */
+.search-button-container {
+    text-align: center; /* center the button horizontally */
+    margin-top: 20px; /* add some top margin */
+}
+.info-btn {
+    background-color: #000000; /* set the background color */
+    border: none; /* remove the border */
+    color: #fff; /* set the text color */
+    padding: 10px 20px; /* add some padding */
+    border-radius: 20px; /* add some roundness */
+    cursor: pointer; /* change the cursor on hover */
+    transition: background-color 0.3s ease-in-out; /* add a transition effect */
+}
+
+.info-btn:hover {
+  background-color: #405677; /* change the background color on hover */
+}
+
+#Contact {
+    background-color: rgba(0, 0, 0, 0.5); /* The fourth value (0.5) is the alpha value */
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #ffffff;
+    font-size: 16px;
+    text-align: center;
+  }
+  
+  
+  #Contact p {
+    margin: 10px 0;
+  }
+  
+  .media-icons a {
+    display: inline-block;
+    margin: 0 10px;
+    font-size: 20px;
+    color: #333;
+    transition: color 0.3s ease;
+  }
+  
+  .media-icons a:hover {
+    color: #00b7c2;
+  }
+  
+  nav ul {
+    list-style: none;
+  }
+  
+  nav a.info-btn {
+    color: #fff;
+    background-color: #00b7c2;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 2px;
+    transition: background-color 0.3s ease;
+  }
+  
+  nav a.info-btn:hover {
+    background-color: #0c4f60;
+  }
+  
+  #Contact p:last-child {
+    margin-top: 20px;
+    font-size: 14px;
+  }
+
